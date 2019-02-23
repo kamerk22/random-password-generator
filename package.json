@@ -2,12 +2,30 @@
   "name": "random-password-generator",
   "version": "0.1.0",
   "private": true,
+  "description": "Random Password Generator",
+  "keywords": [
+    "react",
+    "password",
+    "github",
+    "generator"
+  ],
+  "author": {
+    "name": "Kashyap Merai",
+    "url": "http://kamerk22.github.io"
+  },
+  "license": "MIT",
   "dependencies": {
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
-    "terminal.css": "^0.6.5"
+    "terminal.css": "^0.6.5",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  },
+  "homepage": "http://kamerk22.github.io/random-password-generator",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
