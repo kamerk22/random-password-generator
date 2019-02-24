@@ -28,22 +28,31 @@ class App extends Component {
             <div className="row">
               <div className="col">
                 <div className="form-group">
-                  <input htmlFor="check" type="checkbox" id="check" /> &nbsp;
-                  <label htmlFor="check">Uppercase:</label>
-                  <br />
-                  <input htmlFor="check" type="checkbox" id="check" /> &nbsp;
-                  <label htmlFor="check">Lowercase:</label>
-                  <br />
-                  <input htmlFor="check" type="checkbox" id="check" /> &nbsp;
-                  <label htmlFor="check">Numbers:</label>
-                  <br />
-                  <input htmlFor="check" type="checkbox" id="check" /> &nbsp;
-                  <label htmlFor="check">Symbols:</label>
+                  <label class="checkbox-container">
+                    Uppercase
+                    <input type="checkbox" />
+                    <span class="checkmark" />
+                  </label>
+                  <label class="checkbox-container">
+                    Lowercase
+                    <input type="checkbox" />
+                    <span class="checkmark" />
+                  </label>
+                  <label class="checkbox-container">
+                    Lowercase
+                    <input type="checkbox" />
+                    <span class="checkmark" />
+                  </label>
+                  <label class="checkbox-container">
+                    Symbols
+                    <input type="checkbox" />
+                    <span class="checkmark" />
+                  </label>
                 </div>
               </div>
               <div className="col">
                 <div className="form-group">
-                  <label htmlFor="email">Password Length:</label>&nbsp;
+                  <label htmlFor="email">Password Length:</label>&nbsp;&nbsp;
                   <input
                     type="number"
                     min="8"
