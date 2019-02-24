@@ -1,11 +1,13 @@
 :root {
-  --global-font-size: 15px;
+  --global-font-size: 20px;
   --global-line-height: 1.4em;
   --global-space: 10px;
-  --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-  --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   --background-color: #222225;
-  --page-width: 60em;
+  --page-width: 40em;
   --font-color: #e8e9ed;
   --invert-font-color: #222225;
   --secondary-color: #a3abba;
@@ -17,4 +19,55 @@
   --code-bg-color: #3f3f44;
   --input-style: solid;
   --display-h1-decoration: none;
+}
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background-color: var(--progress-bar-background);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--progress-bar-fill);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--progress-bar-fill);
+  cursor: pointer;
+}
+.row {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+@media (max-width: 48em) {
+  .row {
+    flex-direction: column;
+  }
+  .col {
+    flex: 0 0 auto;
+  }
 }
