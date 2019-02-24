@@ -8,17 +8,35 @@ class App extends Component {
       pwd: ""
     };
   }
+
+  componentDidMount() {
+    this.generatePwd(this.state.length);
+  }
+  generatePwd(len) {
+    var arr = new Uint8Array((len || 40) / 2);
+    window.crypto.getRandomValues(arr);
+    let pwd = Array.from(arr, dec => {
+      return ("0" + dec.toString(16)).substr(-2);
+    }).join("");
+    this.setState({ pwd });
+  }
   render() {
     return (
       <div className="container">
         <section>
           <header>
-            <p style={{ marginBottom: "-10px", marginTop: '3%' }}>
+            <p style={{ marginBottom: "-10px", marginTop: "3%" }}>
               Random Password Generator Tool
             </p>
             <h1>Generate a secure password</h1>
           </header>
-          <input id="password" name="password" type="text" readOnly />
+          <input
+            id="password"
+            name="password"
+            type="text"
+            readOnly
+            value={this.state.pwd}
+          />
         </section>
         <hr />
         <section>
@@ -66,7 +84,7 @@ class App extends Component {
                         style={{ width: 65 }}
                         value={this.state.length}
                         onChange={e => {
-                          console.log(e.target.value);
+                          this.generatePwd(e.target.value);
                           this.setState({ length: e.target.value });
                         }}
                       />
@@ -81,7 +99,7 @@ class App extends Component {
                       max="40"
                       value={this.state.length}
                       onChange={e => {
-                        console.log(e.target.value);
+                        this.generatePwd(e.target.value);
                         this.setState({ length: e.target.value });
                       }}
                     />
@@ -94,7 +112,9 @@ class App extends Component {
           <div style={{ textAlign: "left" }}>
             <div className="row">
               <div className="col">
-                <button className="btn  btn-primary">Generate</button>
+                <button className="btn  btn-primary" onClick={() => {
+                  this.generatePwd(this.state.length);
+                }}>Generate</button>
               </div>
               <div className="col">
                 <button className="btn btn-error">Copy Passoword</button>
@@ -107,7 +127,7 @@ class App extends Component {
         </section>
         <div
           style={{
-            textAlign: "center",
+            textAlign: "center"
           }}
         >
           Made with <span style={{ color: "#e25555" }}>&#9829;</span> by{" "}
