@@ -4,7 +4,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      length: 8
+      length: 8,
+      pwd: ""
     };
   }
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
       <div className="container">
         <section>
           <header>
-            <p style={{ marginBottom: "-10px" }}>
+            <p style={{ marginBottom: "-10px", marginTop: '3%' }}>
               Random Password Generator Tool
             </p>
             <h1>Generate a secure password</h1>
@@ -28,44 +29,51 @@ class App extends Component {
             <div className="row">
               <div className="col">
                 <div className="form-group">
-                  <label class="checkbox-container">
+                  <label className="checkbox-container">
                     Uppercase
                     <input type="checkbox" />
-                    <span class="checkmark" />
+                    <span className="checkmark" />
                   </label>
-                  <label class="checkbox-container">
+                  <label className="checkbox-container">
                     Lowercase
                     <input type="checkbox" />
-                    <span class="checkmark" />
+                    <span className="checkmark" />
                   </label>
-                  <label class="checkbox-container">
-                    Lowercase
+                  <label className="checkbox-container">
+                    Numeric
                     <input type="checkbox" />
-                    <span class="checkmark" />
+                    <span className="checkmark" />
                   </label>
-                  <label class="checkbox-container">
+                  <label className="checkbox-container">
                     Symbols
                     <input type="checkbox" />
-                    <span class="checkmark" />
+                    <span className="checkmark" />
                   </label>
                 </div>
               </div>
               <div className="col">
                 <div className="form-group">
-                  <label htmlFor="email">Password Length:</label>&nbsp;&nbsp;
-                  <input
-                    type="number"
-                    min="8"
-                    max="40"
-                    style={{ width: 65 }}
-                    value={this.state.length}
-                    onChange={e => {
-                      console.log(e.target.value);
-                      this.setState({ length: e.target.value });
-                    }}
-                  />{" "}
+                  <div className="row">
+                    <div className="col">
+                      <label htmlFor="email">Password Length:</label>
+                      &nbsp;&nbsp;
+                    </div>
+                    <div className="col">
+                      <input
+                        type="number"
+                        min="8"
+                        max="40"
+                        style={{ width: 65 }}
+                        value={this.state.length}
+                        onChange={e => {
+                          console.log(e.target.value);
+                          this.setState({ length: e.target.value });
+                        }}
+                      />
+                    </div>
+                  </div>
                   &nbsp;
-                  <div class="slider-container">
+                  <div className="slider-container">
                     <input
                       className="slider"
                       type="range"
@@ -83,16 +91,23 @@ class App extends Component {
             </div>
           </fieldset>
           <br />
-          <div style={{ textAlign: "center" }}>
-            <button className="btn  btn-primary">Generate</button> &nbsp; &nbsp;
-            <button className="btn btn-error">Copy Passoword</button>
+          <div style={{ textAlign: "left" }}>
+            <div className="row">
+              <div className="col">
+                <button className="btn  btn-primary">Generate</button>
+              </div>
+              <div className="col">
+                <button className="btn btn-error">Copy Passoword</button>
+              </div>
+            </div>
+
             <br />
             <br />
           </div>
         </section>
         <div
           style={{
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           Made with <span style={{ color: "#e25555" }}>&#9829;</span> by{" "}

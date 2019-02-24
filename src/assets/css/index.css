@@ -1,5 +1,5 @@
 :root {
-  --global-font-size: 20px;
+  --global-font-size: 16px;
   --global-line-height: 1.4em;
   --global-space: 10px;
   --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
@@ -22,7 +22,6 @@
 }
 .slider-container {
   width: auto;
-  margin-top: 25px;
   padding-right: 30px;
   overflow: hidden;
 }
@@ -30,6 +29,7 @@
   -webkit-appearance: none;
   width: 100%;
   height: 15px;
+  margin-top: 5px;
   border-radius: 30px !important;
   background-color: var(--progress-bar-background);
   outline: none;
@@ -42,6 +42,7 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
+  
   width: 25px;
   height: 25px;
   border-radius: 50%;
