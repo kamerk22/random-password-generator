@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Toggle from "./components/Toogle";
-import { timingSafeEqual } from "crypto";
+import sun from "./assets/images/sun.png"
+import moon from "./assets/images/moon.png"
 const root = document.documentElement;
 const theme = {
   dark: {
@@ -60,7 +61,7 @@ class App extends Component {
                       icons={{
                         checked: (
                           <img
-                            src=""
+                            src={moon}
                             width="16"
                             height="16"
                             role="presentation"
@@ -69,7 +70,7 @@ class App extends Component {
                         ),
                         unchecked: (
                           <img
-                            src=""
+                            src={sun}
                             width="16"
                             height="16"
                             role="presentation"

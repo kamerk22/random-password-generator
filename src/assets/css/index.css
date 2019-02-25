@@ -20,6 +20,9 @@
   --input-style: solid;
   --display-h1-decoration: none;
 }
+* html {
+  transition: "color 0.2s ease-out, background 0.2s ease-out";
+}
 .slider-container {
   width: auto;
   padding-right: 30px;
