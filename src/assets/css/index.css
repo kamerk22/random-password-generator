@@ -6,16 +6,16 @@
     Bitstream Vera Sans Mono, Courier New, monospace, serif;
   --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
     DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-  --background-color: #222225;
+  --background-color: #fff;
   --page-width: 40em;
-  --font-color: #e8e9ed;
+  --font-color: #222225;
   --invert-font-color: #222225;
   --secondary-color: #a3abba;
   --tertiary-color: #a3abba;
-  --primary-color: #62c4ff;
+  --primary-color: #00FF41;
   --error-color: #ff3c74;
   --progress-bar-background: #3f3f44;
-  --progress-bar-fill: #62c4ff;
+  --progress-bar-fill: var(--primary-color);
   --code-bg-color: #3f3f44;
   --input-style: solid;
   --display-h1-decoration: none;
