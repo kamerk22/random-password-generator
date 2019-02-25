@@ -12,7 +12,7 @@
   --invert-font-color: #222225;
   --secondary-color: #a3abba;
   --tertiary-color: #a3abba;
-  --primary-color: #00FF41;
+  --primary-color: #00ff41;
   --error-color: #ff3c74;
   --progress-bar-background: #3f3f44;
   --progress-bar-fill: var(--primary-color);
@@ -42,7 +42,7 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  
+
   width: 25px;
   height: 25px;
   border-radius: 50%;

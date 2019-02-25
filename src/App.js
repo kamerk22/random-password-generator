@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 import Toggle from "./components/Toogle";
-
+import { timingSafeEqual } from "crypto";
+const root = document.documentElement;
+const theme = {
+  dark: {
+    background: "#222225",
+    font: "#ffffff"
+  },
+  light: {
+    background: "#ffffff",
+    font: "#222225"
+  }
+};
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +33,16 @@ class App extends Component {
     }).join("");
     this.setState({ pwd });
   }
+
+  changeTheme(e) {
+    this.setState({
+      theme: e.target.checked ? "dark" : "light"
+    });
+    root.style.setProperty("--background-color", theme[this.state.theme].font);
+    root.style.setProperty("--font-color", theme[this.state.theme].background);
+  }
   render() {
+    let root = document.documentElement;
     return (
       <div>
         <div className="container">
@@ -35,7 +55,7 @@ class App extends Component {
                   </p>
                 </div>
                 <div className="col">
-                  <div style={{ textAlign: "right", margin: '10px 0 0 0' }}>
+                  <div style={{ textAlign: "right", margin: "10px 0 0 0" }}>
                     <Toggle
                       icons={{
                         checked: (
@@ -58,17 +78,13 @@ class App extends Component {
                         )
                       }}
                       checked={this.state.theme === "dark"}
-                      onChange={e =>
-                        window.__setPreferredTheme(
-                          e.target.checked ? "dark" : "light"
-                        )
-                      }
+                      onChange={e => this.changeTheme(e)}
                     />
                   </div>
                 </div>
               </div>
 
-              <h1>Generate a secure password</h1>
+              <h1 className=" terminal-prompt">Generate a secure password</h1>
             </header>
             <input
               id="password"
