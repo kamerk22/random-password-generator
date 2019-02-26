@@ -66,7 +66,19 @@
 .col {
   flex: 1;
 }
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
 @media (max-width: 48em) {
+  h1 {
+    font-size: 18px;
+    padding: calc(var(--global-space)) 0 calc(var(--global-space));
+  }
+  .switch {
+    padding: calc(var(--global-space)) 0 calc(var(--global-space));
+  }
   .row {
     flex-direction: column;
   }
@@ -114,7 +126,6 @@
   text-align: right;
   padding: calc(var(--global-space) * 2) 0 calc(var(--global-space) * 2);
 }
-
 
 /* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked ~ .checkmark {

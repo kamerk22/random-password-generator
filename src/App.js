@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Toggle from "./components/Toogle";
 import sun from "./assets/images/sun.png";
 import moon from "./assets/images/moon.png";
+import Clipboard from "./components/Clipboard";
 const root = document.documentElement;
 const theme = {
   dark: {
@@ -85,13 +86,17 @@ class App extends Component {
                 </div>
               </div>
             </header>
-            <input
-              id="password"
-              name="password"
-              type="text"
-              readOnly
-              value={this.state.pwd}
-            />
+            <div className="input-container">
+              <input
+                id="password"
+                name="password"
+                type="text"
+                readOnly
+                value={this.state.pwd}
+              />
+              
+            </div>
+            <Clipboard />
           </section>
           <hr />
           <section>
@@ -189,6 +194,7 @@ class App extends Component {
           >
             Made with <span style={{ color: "#e25555" }}>&#9829;</span> by{" "}
             <a href="http://kamerk22.github.io">Kashyap Merai</a>
+            
           </div>
         </div>
       </div>
