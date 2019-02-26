@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Toggle from "./components/Toogle";
-import sun from "./assets/images/sun.png"
-import moon from "./assets/images/moon.png"
+import sun from "./assets/images/sun.png";
+import moon from "./assets/images/moon.png";
 const root = document.documentElement;
 const theme = {
   dark: {
@@ -51,12 +51,12 @@ class App extends Component {
             <header>
               <div className="row">
                 <div className="col">
-                  <p style={{ marginBottom: "-10px", marginTop: "3%" }}>
-                    Random Password Generator Tool
-                  </p>
+                  <h1 className=" terminal-prompt">
+                    Generate a secure password
+                  </h1>
                 </div>
                 <div className="col">
-                  <div style={{ textAlign: "right", margin: "10px 0 0 0" }}>
+                  <div className="switch">
                     <Toggle
                       icons={{
                         checked: (
@@ -84,8 +84,6 @@ class App extends Component {
                   </div>
                 </div>
               </div>
-
-              <h1 className=" terminal-prompt">Generate a secure password</h1>
             </header>
             <input
               id="password"
@@ -177,9 +175,6 @@ class App extends Component {
                   >
                     Generate
                   </button>
-                </div>
-                <div className="col">
-                  <button className="btn btn-error">Copy Passoword</button>
                 </div>
               </div>
 
