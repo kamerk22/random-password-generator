@@ -3,6 +3,7 @@ import Toggle from "./components/Toogle";
 import sun from "./assets/images/sun.png";
 import moon from "./assets/images/moon.png";
 import Clipboard from "./components/Clipboard";
+import { generateRandom } from "./utils/RandomPassword";
 const root = document.documentElement;
 const theme = {
   dark: {
@@ -20,6 +21,10 @@ class App extends Component {
     this.state = {
       length: 8,
       pwd: "",
+      upperCase: false,
+      lowerCase: false,
+      numeric: false,
+      symbol: true,
       theme: "light"
     };
   }
@@ -28,11 +33,13 @@ class App extends Component {
     this.generatePwd(this.state.length);
   }
   generatePwd(len) {
-    var arr = new Uint8Array((len || 40) / 2);
-    window.crypto.getRandomValues(arr);
-    let pwd = Array.from(arr, dec => {
-      return ("0" + dec.toString(16)).substr(-2);
-    }).join("");
+    const { upperCase, lowerCase, numeric, symbol } = this.state;
+    let pwd = generateRandom(len)
+      .setLowerCase(lowerCase)
+      .setUpperCase(upperCase)
+      .setNumberCase(numeric)
+      .setSymbol(symbol)
+      .generate();
     this.setState({ pwd });
   }
 
