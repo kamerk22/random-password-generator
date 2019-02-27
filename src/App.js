@@ -21,20 +21,20 @@ class App extends Component {
     this.state = {
       length: 8,
       pwd: "",
-      upperCase: false,
-      lowerCase: false,
-      numeric: false,
-      symbol: true,
+      upperCase: true,
+      lowerCase: true,
+      numeric: true,
+      symbol: false,
       theme: "light"
     };
   }
 
   componentDidMount() {
-    this.generatePwd(this.state.length);
+    this.generatePwd();
   }
-  generatePwd(len) {
-    const { upperCase, lowerCase, numeric, symbol } = this.state;
-    let pwd = generateRandom(len)
+  generatePwd() {
+    const { upperCase, lowerCase, numeric, symbol, length } = this.state;
+    let pwd = generateRandom(length)
       .setLowerCase(lowerCase)
       .setUpperCase(upperCase)
       .setNumberCase(numeric)
@@ -51,7 +51,6 @@ class App extends Component {
     root.style.setProperty("--font-color", theme[this.state.theme].background);
   }
   render() {
-    let root = document.documentElement;
     return (
       <div>
         <div className="container">
@@ -73,6 +72,7 @@ class App extends Component {
                             width="16"
                             height="16"
                             role="presentation"
+                            alt="dark"
                             style={{ pointerEvents: "none" }}
                           />
                         ),
@@ -82,6 +82,7 @@ class App extends Component {
                             width="16"
                             height="16"
                             role="presentation"
+                            alt="light"
                             style={{ pointerEvents: "none" }}
                           />
                         )
@@ -118,22 +119,22 @@ class App extends Component {
                   <div className="form-group">
                     <label className="checkbox-container">
                       Uppercase
-                      <input type="checkbox" />
+                      <input type="checkbox" checked />
                       <span className="checkmark" />
                     </label>
                     <label className="checkbox-container">
                       Lowercase
-                      <input type="checkbox" />
+                      <input type="checkbox" checked />
                       <span className="checkmark" />
                     </label>
                     <label className="checkbox-container">
                       Numeric
-                      <input type="checkbox" />
+                      <input type="checkbox" checked />
                       <span className="checkmark" />
                     </label>
                     <label className="checkbox-container">
                       Symbols
-                      <input type="checkbox" />
+                      <input type="checkbox"  />
                       <span className="checkmark" />
                     </label>
                   </div>
@@ -153,8 +154,8 @@ class App extends Component {
                           style={{ width: 65 }}
                           value={this.state.length}
                           onChange={e => {
-                            this.generatePwd(e.target.value);
                             this.setState({ length: e.target.value });
+                            this.generatePwd();
                           }}
                         />
                       </div>
@@ -168,8 +169,9 @@ class App extends Component {
                         max="40"
                         value={this.state.length}
                         onChange={e => {
-                          this.generatePwd(e.target.value);
-                          this.setState({ length: e.target.value });
+                          this.setState({ length: e.target.value }, ()=>{
+                            this.generatePwd();
+                          });
                         }}
                       />
                     </div>
@@ -184,7 +186,7 @@ class App extends Component {
                   <button
                     className="btn  btn-primary"
                     onClick={() => {
-                      this.generatePwd(this.state.length);
+                      this.generatePwd();
                     }}
                   >
                     Generate
@@ -201,6 +203,7 @@ class App extends Component {
               textAlign: "center"
             }}
           >
+          
             Made with <span style={{ color: "#e25555" }}>&#9829;</span> by{" "}
             <a href="http://kamerk22.github.io">Kashyap Merai</a>
           </div>

@@ -4,11 +4,7 @@ import copyw from "../../assets/images/copyw.png";
 import "./index.css";
 
 export default class Toggle extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+  render() {    
     const { theme } = this.props;
     return (
       <div className="tooltip">
