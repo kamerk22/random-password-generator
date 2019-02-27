@@ -88,15 +88,16 @@ class App extends Component {
             </header>
             <div className="input-container">
               <input
-                id="password"
+                id="input"
                 name="password"
                 type="text"
                 readOnly
                 value={this.state.pwd}
               />
-              
+              <div className="clipboard">
+                <Clipboard theme={this.state.theme} />
+              </div>
             </div>
-            <Clipboard />
           </section>
           <hr />
           <section>
@@ -194,7 +195,6 @@ class App extends Component {
           >
             Made with <span style={{ color: "#e25555" }}>&#9829;</span> by{" "}
             <a href="http://kamerk22.github.io">Kashyap Merai</a>
-            
           </div>
         </div>
       </div>

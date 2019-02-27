@@ -66,12 +66,21 @@
 .col {
   flex: 1;
 }
+input::-moz-selection { background: transparent}
+input::selection { background: transparent }
 .input-container {
   display: flex;
   width: 100%;
   margin-bottom: 15px;
 }
+.clipboard {
+  margin: 7px -5%  0px;
+  text-align: right;
+}
 @media (max-width: 48em) {
+  .clipboard {
+    margin: 7px -10%  0px;
+  }
   h1 {
     font-size: 18px;
     padding: calc(var(--global-space)) 0 calc(var(--global-space));
