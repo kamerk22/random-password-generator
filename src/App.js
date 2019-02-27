@@ -89,6 +89,7 @@ class App extends Component {
             <div className="input-container">
               <input
                 id="input"
+                className={this.state.theme}
                 name="password"
                 type="text"
                 readOnly
