@@ -62,7 +62,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className="container" style={{marginTop: 20}}>
           <section>
             <header>
               <div className="row">
@@ -150,7 +150,6 @@ class App extends Component {
                       Numeric
                       <input
                         type="checkbox"
-                        checked
                         checked={this.state.numeric}
                         name="numeric"
                         onChange={e => this.handleCheckbox(e)}
