@@ -3,7 +3,7 @@ import Toggle from "./components/Toogle";
 import sun from "./assets/images/sun.png";
 import moon from "./assets/images/moon.png";
 import Clipboard from "./components/Clipboard";
-import { generateRandom } from "./utils/RandomPassword";
+import {RandomPassword} from "./utils/RandomPassword";
 const root = document.documentElement;
 const theme = {
   dark: {
@@ -34,13 +34,22 @@ class App extends Component {
   }
   generatePwd() {
     const { upperCase, lowerCase, numeric, symbol, length } = this.state;
-    let pwd = generateRandom(length)
+    let pwd = new RandomPassword()
+      .setLength(length)
       .setLowerCase(lowerCase)
       .setUpperCase(upperCase)
       .setNumberCase(numeric)
       .setSymbol(symbol)
       .generate();
     this.setState({ pwd });
+  }
+
+  handleCheckbox(e) {
+    const { name, checked } = e.target;
+    this.setState({
+      [name]: checked
+    });
+    // this.generatePwd();
   }
 
   changeTheme(e) {
@@ -119,22 +128,43 @@ class App extends Component {
                   <div className="form-group">
                     <label className="checkbox-container">
                       Uppercase
-                      <input type="checkbox" checked />
+                      <input
+                        type="checkbox"
+                        checked={this.state.upperCase}
+                        name="upperCase"
+                        onChange={e => this.handleCheckbox(e)}
+                      />
                       <span className="checkmark" />
                     </label>
                     <label className="checkbox-container">
                       Lowercase
-                      <input type="checkbox" checked />
+                      <input
+                        type="checkbox"
+                        checked={this.state.lowerCase}
+                        name="lowerCase"
+                        onChange={e => this.handleCheckbox(e)}
+                      />
                       <span className="checkmark" />
                     </label>
                     <label className="checkbox-container">
                       Numeric
-                      <input type="checkbox" checked />
+                      <input
+                        type="checkbox"
+                        checked
+                        checked={this.state.numeric}
+                        name="numeric"
+                        onChange={e => this.handleCheckbox(e)}
+                      />
                       <span className="checkmark" />
                     </label>
                     <label className="checkbox-container">
                       Symbols
-                      <input type="checkbox"  />
+                      <input
+                        type="checkbox"
+                        checked={this.state.symbol}
+                        name="symbol"
+                        onChange={e => this.handleCheckbox(e)}
+                      />
                       <span className="checkmark" />
                     </label>
                   </div>
@@ -169,7 +199,7 @@ class App extends Component {
                         max="40"
                         value={this.state.length}
                         onChange={e => {
-                          this.setState({ length: e.target.value }, ()=>{
+                          this.setState({ length: e.target.value }, () => {
                             this.generatePwd();
                           });
                         }}
@@ -203,7 +233,6 @@ class App extends Component {
               textAlign: "center"
             }}
           >
-          
             Made with <span style={{ color: "#e25555" }}>&#9829;</span> by{" "}
             <a href="http://kamerk22.github.io">Kashyap Merai</a>
           </div>
