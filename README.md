@@ -18,6 +18,7 @@ This tool will help to generate Random Password with 8 - 40 lenght. Also support
 
 - [Kashyap Merai][link-author]
 - [All Contributors][link-contributors]
+- [Terminal CSS](http://terminalcss.xyz)
 
 ## License
 
