@@ -3,7 +3,7 @@ import Toggle from "./components/Toogle";
 import sun from "./assets/images/sun.png";
 import moon from "./assets/images/moon.png";
 import Clipboard from "./components/Clipboard";
-import {RandomPassword} from "./utils/RandomPassword";
+import { RandomPassword } from "./utils/RandomPassword";
 const root = document.documentElement;
 const theme = {
   dark: {
@@ -20,12 +20,15 @@ class App extends Component {
     super(props);
     this.state = {
       length: 8,
+      newLength: 8,
       pwd: "",
       upperCase: true,
       lowerCase: true,
       numeric: true,
       symbol: false,
-      theme: "light"
+      theme: "light",
+      typing: false,
+      typingTimeout: 0
     };
   }
 
@@ -49,7 +52,14 @@ class App extends Component {
     this.setState({
       [name]: checked
     });
-    // this.generatePwd();
+    this.generatePwd();
+  }
+
+  handleLenghtChange({ target: { value } }) {
+    if (value >= 40) {
+      value = 40;
+    }
+    this.setState({ length: value }, () => this.generatePwd());
   }
 
   changeTheme(e) {
@@ -62,7 +72,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="container" style={{marginTop: 20}}>
+        <div className="container" style={{ marginTop: 20 }}>
           <section>
             <header>
               <div className="row">
@@ -182,10 +192,7 @@ class App extends Component {
                           max="40"
                           style={{ width: 65 }}
                           value={this.state.length}
-                          onChange={e => {
-                            this.setState({ length: e.target.value });
-                            this.generatePwd();
-                          }}
+                          onChange={e => this.handleLenghtChange(e)}
                         />
                       </div>
                     </div>
@@ -197,11 +204,7 @@ class App extends Component {
                         min="8"
                         max="40"
                         value={this.state.length}
-                        onChange={e => {
-                          this.setState({ length: e.target.value }, () => {
-                            this.generatePwd();
-                          });
-                        }}
+                        onChange={e => this.handleLenghtChange(e)}
                       />
                     </div>
                   </div>
