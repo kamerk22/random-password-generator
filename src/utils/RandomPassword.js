@@ -43,7 +43,16 @@ export class RandomPassword {
   }
 }
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+/**
+  Generate random value using webcrypto instead of Math.random() which is least secure than webcrypto itself
+  https://stackoverflow.com/questions/18230217/javascript-generate-a-random-number-within-a-range-using-crypto-getrandomvalues
+**/
+function cryptoRandom() {
+  const randomBuffer = new Uint32Array(1);
+  (window.crypto || window.msCrypto).getRandomValues(randomBuffer);
+  return ( randomBuffer[0] / (0xffffffff + 1) );
 }
 
+function getRandomInt(min, max) {
+  return Math.floor(cryptoRandom() * (Math.ceil(max) - Math.floor(min) + 1)) + min;
+}
